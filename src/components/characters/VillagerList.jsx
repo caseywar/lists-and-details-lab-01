@@ -1,10 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Villager from './Villager'
+import '../app/App.css'
 
 const VillagerList = ({ villagers }) => {
     const villagerElements = villagers.map((villager) => (
-        <li key={villager.id}>
+        <li key={villager.id} >
             <Villager
                 name={villager.name}
                 image={villager.image}
@@ -14,7 +15,7 @@ const VillagerList = ({ villagers }) => {
             </li>
             ));
     return (
-        <ul aria-label="villagers">
+        <ul aria-label="villagers" className="list">
             {villagerElements}
         </ul> )
 }

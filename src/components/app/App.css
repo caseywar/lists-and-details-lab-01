@@ -1,0 +1,21 @@
+body {
+    background-color: rgb(191, 237, 182);
+}
+
+/* .newList {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 4px 
+} */
+
+.list {
+    list-style: none;
+    display: grid;
+    flex-wrap: wrap;
+    grid-template-columns: repeat(4, 1fr);
+    text-align: center;
+}
+
+.image {
+width: 200px;
+}
