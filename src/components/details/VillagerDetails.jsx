@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 
-const VillagerDetails = ({ name, image, personality, quote }) => (
-    <>
+function VillagerDetails({ villager: { name, image, personality, quote }, }) {
+    return (
         <ul aria-label="villager">
             <li>
                 <h2>{name}</h2>
@@ -12,13 +12,11 @@ const VillagerDetails = ({ name, image, personality, quote }) => (
                 <p>{quote}</p>
             </li>
         </ul>
-        </>
-)
+    );
+}
 
 VillagerDetails.propTypes = {
-    name: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired,
-    personality: PropTypes.string.isRequired,
-    quote: PropTypes.string.isRequired,};
+    villager: PropTypes.object.isRequired
+};
 
 export default VillagerDetails
