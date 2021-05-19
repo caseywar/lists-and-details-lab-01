@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Details Container test render villager details by id 1`] = `
+<main
+  role="villagerDetails"
+>
+  <label />
+  <img />
+  <ul>
+    <li />
+    <li />
+  </ul>
+  <a
+    href="/"
+  >
+    Back to List
+  </a>
+</main>
+`;

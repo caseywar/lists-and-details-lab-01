@@ -1,24 +1,25 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Villager from './Villager'
-import '../app/App.css'
+import { Link } from 'react-router-dom';
+import style from '../app/App.css'
 
-const VillagerList = ({ villagers }) => {
-    const villagerElements = villagers.map((villager) => (
-        <li key={villager.id} >
-            <Villager
-                name={villager.name}
-                image={villager.image}
-                personality={villager.personality}
-                quote={villager.quote}
-            /> 
-            </li>
-            ));
-    return (
-        <ul aria-label="villagers" className="list">
-            {villagerElements}
-        </ul> )
-}
+
+const VillagerList = ({ villagers }) => (
+        <ul aria-label="villagers" className={style.list}>
+            {villagers.map((villager) => (
+                <Link to={`villagers/${villager.id}`} key={villager.id} >
+                    <li key={villager.id} className={style.character} >
+                    <Villager
+                        name={villager.name}
+                        image={villager.image}
+                    /> 
+                </li>
+                </Link>
+            ))}
+        </ul> 
+    )
+
 
 VillagerList.propTypes = {
     villagers: PropTypes.arrayOf(
@@ -26,8 +27,7 @@ VillagerList.propTypes = {
             id: PropTypes.string.isRequired,
             name: PropTypes.string.isRequired,
             image: PropTypes.string.isRequired,
-            personality: PropTypes.string.isRequired,
-            quote: PropTypes.string.isRequired,
+    
         }).isRequired
     ).isRequired
 }

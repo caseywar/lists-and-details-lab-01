@@ -1,7 +1,6 @@
 import React from 'react';
 import AnimalCrossingContainer from '../../containers/AnimalCrossingContainer';
-import './App.css';
-import VillagerDetails from '../details/VillagerDetails';
+import DetailContainer from '../../containers/DetailContainer';
 import {
   BrowserRouter as Router,
   Route,
@@ -13,8 +12,8 @@ export default function App() {
   return (
     <Router>
       <Switch>
-        <Route exact path="/" component={AnimalCrossingContainer} />
-        <Route path="/:id" component={VillagerDetails} />
+        <Route exact path="/" exact component={AnimalCrossingContainer} />
+        <Route path="/villagers/:id" exact component={DetailContainer} />
       </Switch>
     </Router>
   )

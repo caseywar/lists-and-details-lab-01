@@ -1,27 +1,33 @@
 import React, { Component } from 'react';
-import { fetchVillagers } from '../services/AnimalCrossingApi';
-import VillagerDetails from '../components/details/VillagerDetails';
-import VillagerList from '../components/characters/VillagerList';
+import { findVillagerById } from '../services/AnimalCrossingApi';
+import VillagerDetail from '../components/details/VillagerDetails';
+import style from '../components/app/App.css'
+
 
 export default class DetailContainer extends Component {
     state = {
-        villager: {}
+        villagerObject: {},
+        loading: true,
     };
 
     async componentDidMount() {
-        const { id } = this.props.match.params;
-        const villager = await fetchVillagers(id);
+        this.setState({ loading: true });
+        const villager = await findVillagerById(this.props.match.params.id);
         this.setState({
-            villager
+            villagerObject: villager,
+            loading: false
         });
     }
 
     render() {
-        const { villager } = this.state;
+
+        const { villagerObject, loading } = this.state;
+        if (loading) return <h1>Loading...</h1>;
+
         return(
-            <div>
+            <div className={style.detailPage}>
                 <h1>Villager Details</h1>
-                <VillagerDetails villager={villager} />
+                <VillagerDetail villager={villagerObject} />
             </div>
         );
     }

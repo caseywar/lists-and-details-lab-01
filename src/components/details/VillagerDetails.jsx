@@ -1,22 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import style from '../app/App.css'
 
-
-function VillagerDetails({ villager: { name, image, personality, quote }, }) {
+function VillagerDetail({ villager }) {
     return (
-        <ul aria-label="villager">
-            <li>
-                <h2>{name}</h2>
-                <img src={image} alt={name} />
-                <p>{personality}</p>
-                <p>{quote}</p>
-            </li>
-        </ul>
+        <main role="villagerDetails" className={style.detail}>
+            <h1>{villager.name}</h1>
+            <img src={villager.image} alt={villager.name} />
+            <ul>
+                <li>{villager.personality}</li>
+                <li>{villager.quote}</li>
+            </ul>
+            <a href="/">Back to List</a>
+        </main>
     );
 }
 
-VillagerDetails.propTypes = {
-    villager: PropTypes.object.isRequired
+VillagerDetail.propTypes = {
+    villager: PropTypes.object.isRequired,
 };
 
-export default VillagerDetails
+export default VillagerDetail

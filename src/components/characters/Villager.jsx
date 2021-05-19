@@ -1,21 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import '../app/App.css'
 
-const Villager = ({ name, personality, quote, image  }) => (
-        <>
-            <img src={image} alt={name} className='image'/>
+const Villager = ({ name, image  }) => (
+        <div>
+            <img src={image} alt={name} />
             <p>{name}</p>
-            <p>{personality}</p>
-            <p>"{quote}"</p>
-        </>
-)
+  
+        </div>
+);
 
 Villager.propTypes = {
   name: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
-  personality: PropTypes.string.isRequired,
-  quote: PropTypes.string.isRequired,
 }
 
 export default Villager
