@@ -2,9 +2,10 @@
 
 exports[`Details Container test render villager details by id 1`] = `
 <main
+  class="detail"
   role="villagerDetails"
 >
-  <label />
+  <h1 />
   <img />
   <ul>
     <li />
